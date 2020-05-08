@@ -12,7 +12,7 @@ pip install -r requirements.txt
 Хэрэв NVIDIA GPU байгаа бол CUDA enabled PyTorch-ыг татаж суулгана уу.
 Үүний тулд Conda evniroment үүсгэн дараах алхмуудыг хийнэ үү.
 ```console
-conda create -name new_env clone old_env
+conda create -name new_env python=3.6
 activate new_env
 conda install -c pytorch pytorch==1.0.0
 conda install -c omnia cuda92
