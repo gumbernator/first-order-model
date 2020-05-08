@@ -1,5 +1,5 @@
 import matplotlib
-matplotlib.use('Agg')
+# matplotlib.use('Agg')
 import os
 import yaml
 from argparse import ArgumentParser
@@ -55,20 +55,22 @@ def display(source, driving, generated=None):
     plt.close()
     return ani
 
-def load_checkpoints(config_path, checkpoint_path):
+def load_checkpoints(config_path, checkpoint_path, cuda_enabled):
 
     with open(config_path) as f:
         config = yaml.load(f)
 
     generator = OcclusionAwareGenerator(**config['model_params']['generator_params'],
                                         **config['model_params']['common_params'])
-    generator.cuda()
+    if cuda_enabled:
+        generator.cuda()
 
     kp_detector = KPDetector(**config['model_params']['kp_detector_params'],
                              **config['model_params']['common_params'])
-    kp_detector.cuda()
+    if cuda_enabled:
+        kp_detector.cuda()
 
-    checkpoint = torch.load(checkpoint_path)
+    checkpoint = torch.load(checkpoint_path, map_location='cpu')
     generator.load_state_dict(checkpoint['generator'])
     kp_detector.load_state_dict(checkpoint['kp_detector'])
 
@@ -81,11 +83,16 @@ def load_checkpoints(config_path, checkpoint_path):
     return generator, kp_detector
 
 
-def make_animation(source_image, driving_video, generator, kp_detector, relative=True, adapt_movement_scale=True):
+def make_animation(source_image, driving_video, generator, kp_detector, cuda_enabled, relative=True, adapt_movement_scale=True):
     with torch.no_grad():
         predictions = []
-        source = torch.tensor(source_image[np.newaxis].astype(np.float32)).permute(0, 3, 1, 2).cuda()
-        driving = torch.tensor(np.array(driving_video)[np.newaxis].astype(np.float32)).permute(0, 4, 1, 2, 3).cuda()
+        
+        if not cuda_enabled:
+            source = torch.tensor(source_image[np.newaxis].astype(np.float32)).permute(0, 3, 1, 2)
+            driving = torch.tensor(np.array(driving_video)[np.newaxis].astype(np.float32)).permute(0, 4, 1, 2, 3)
+        else:
+            source = torch.tensor(source_image[np.newaxis].astype(np.float32)).permute(0, 3, 1, 2).cuda()
+            driving = torch.tensor(np.array(driving_video)[np.newaxis].astype(np.float32)).permute(0, 4, 1, 2, 3).cuda()
         kp_source = kp_detector(source)
         kp_driving_initial = kp_detector(driving[:, :, 0])
 
