@@ -15,7 +15,7 @@ pip install -r requirements.txt
 conda create -name new_env python=3.6
 activate new_env
 conda install -c pytorch pytorch==1.0.0
-conda install -c omnia cuda92
+conda install -c pytorch cuda90
 ```
 ### Pre-trained checkpoint
 Checkpoints can be found under following link: [google-drive](https://drive.google.com/open?id=1PyQJmkdCsAkOYwUyaj_l-l0as-iLDgeH) or [yandex-disk](https://yadi.sk/d/lEw8uRm140L_eQ).
