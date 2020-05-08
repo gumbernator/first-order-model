@@ -3,16 +3,10 @@
 This repository contains the source code for the paper [First Order Motion Model for Image Animation](https://papers.nips.cc/paper/8935-first-order-motion-model-for-image-animation) by Aliaksandr Siarohin, [Stéphane Lathuilière](http://stelat.eu), [Sergey Tulyakov](http://stulyakov.com), [Elisa Ricci](http://elisaricci.eu/) and [Nicu Sebe](http://disi.unitn.it/~sebe/). 
 
 ### Installation
-
-We support ```python3```. To install the dependencies run:
-```
-pip install -r requirements.txt
-```
-
 Хэрэв NVIDIA GPU байгаа бол CUDA enabled PyTorch-ыг татаж суулгана уу.
 Үүний тулд Conda evniroment үүсгэн дараах алхмуудыг хийнэ үү.
 
-requirement.txt доторх pytorch-ын линкийн мөрийг устгана. Энэ мөр нь pytorch-cpu татдаг тул хэрэггүй.
+requirements.txt доторх pytorch-ын линкийн мөрийг устгана. Энэ мөр нь pytorch-cpu татдаг тул хэрэггүй.
 Үүний дараа доорх коммандуудыг ажиллуулна.
 ```console
 conda create -name new_env python=3.6
@@ -20,6 +14,15 @@ activate new_env
 conda install -c pytorch pytorch==1.0.0
 conda install -c pytorch cuda90
 ```
+
+Хэрэв NVIDIA GPU байхгүй бол шууд requirements.txt дотор байгаа сангуудыг доорх коммандаар татна уу.
+
+(Энэ нь дан CPU дээр ажиллах тул хувиргалтын үед удаан ажиллана.)
+```
+pip install -r requirements.txt
+```
+
+
 ### Pre-trained checkpoint
 Checkpoints can be found under following link: [google-drive](https://drive.google.com/open?id=1PyQJmkdCsAkOYwUyaj_l-l0as-iLDgeH) or [yandex-disk](https://yadi.sk/d/lEw8uRm140L_eQ).
 
