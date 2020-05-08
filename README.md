@@ -11,10 +11,11 @@ pip install -r requirements.txt
 
 Хэрэв NVIDIA GPU байгаа бол CUDA enabled PyTorch-ыг татаж суулгана уу.
 Үүний тулд Conda evniroment үүсгэн дараах алхмуудыг хийнэ үү.
-**conda create -name new_env clone old_env
-**activate new_env
-**conda install -c pytorch pytorch==1.0.0
-**conda install -c omnia cuda92
+
+conda create -name new_env clone old_env
+activate new_env
+conda install -c pytorch pytorch==1.0.0
+conda install -c omnia cuda92
 
 ### Pre-trained checkpoint
 Checkpoints can be found under following link: [google-drive](https://drive.google.com/open?id=1PyQJmkdCsAkOYwUyaj_l-l0as-iLDgeH) or [yandex-disk](https://yadi.sk/d/lEw8uRm140L_eQ).
