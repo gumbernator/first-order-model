@@ -21,8 +21,8 @@ conda install numpy
 
 (Энэ нь дан CPU дээр ажиллах тул хувиргалтын үед удаан ажиллана.)
 ```
-pip install torch==1.5.0+cpu torchvision==0.6.0+cpu -f https://download.pytorch.org/whl/torch_stable.html
 pip install -r requirements_cpu.txt
+pip install torch==1.5.0+cpu torchvision==0.6.0+cpu -f https://download.pytorch.org/whl/torch_stable.html
 ```
 
 
