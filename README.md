@@ -12,8 +12,7 @@ requirements_gpu.txt доторх pytorch-ын линкийн мөрийг ус�
 conda create -name new_env python=3.6
 activate new_env
 pip install -r requirements_gpu.txt
-conda install -c pytorch pytorch==1.0.0
-conda install -c pytorch cuda90
+conda install pytorch torchvision cudatoolkit=9.2 -c pytorch
 conda install numpy
 ```
 
