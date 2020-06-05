@@ -5,9 +5,6 @@ This repository contains the source code for the paper [First Order Motion Model
 ### Installation
 Хэрэв NVIDIA GPU байгаа бол CUDA enabled PyTorch-ыг татаж суулгана уу.
 Үүний тулд Conda evniroment үүсгэн дараах алхмуудыг хийнэ үү.
-
-requirements_gpu.txt доторх pytorch-ын линкийн мөрийг устгана. Энэ мөр нь pytorch-cpu татдаг тул хэрэггүй.
-Үүний дараа доорх коммандуудыг ажиллуулна.
 ```console
 conda create -name new_env python=3.6
 activate new_env
