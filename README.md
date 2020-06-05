@@ -14,7 +14,15 @@ activate new_env
 pip install -r requirements_gpu.txt
 conda install pytorch torchvision cudatoolkit=9.2 -c pytorch
 conda install numpy
+conda install ffmpeg -c conda-forge
 ```
+
+jupyter kernel-ийг install хийж өгнө. Үүний тулд conda env-аа activate хийсэн байх ёстойг анхаарна уу!
+```
+python -m ipykernel install --user --name new_env --display-name "Python (new_env)"
+```
+
+Эцэст нь Demo.ipynb дотороо kernel-ийг нь өөрсдийн үүсгэсэн kernel-д шилжүүлнэ!
 
 Хэрэв NVIDIA GPU байхгүй бол шууд requirements.txt дотор байгаа сангуудыг доорх коммандаар татна уу.
 
